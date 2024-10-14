@@ -7,7 +7,7 @@ from .forms import PostForm
 
 
 def news_list(request):
-    post_news = Post.objects.filter(post_type=Post.NEWS).order_by('created_at')
+    post_news = Post.objects.order_by('created_at')
     paginator = Paginator(post_news, 2)  
     page_number = request.GET.get('page')  
     page_obj = paginator.get_page(page_number)
